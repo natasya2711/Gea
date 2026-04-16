@@ -1,48 +1,55 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+class QuestModel {
+  final String title;
+  final String reward;
+  const QuestModel({
+    required this.title,
+    required this.reward,
+  });
+}
 
 class QuestWidget extends StatelessWidget {
-  const QuestWidget({super.key});
+  final QuestModel quest;
+  const QuestWidget({super.key, required this.quest});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        
-      },
       borderRadius: BorderRadius.circular(14),
       child: Ink(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.tealAccent.withAlpha(14),
+          color: CupertinoColors.destructiveRed.withAlpha(14),
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: Colors.black.withAlpha(20))
+          border: Border.all(color: Colors.deepPurpleAccent),
           boxShadow: [
             BoxShadow(
-              color: Colors.cyan.withAlpha(10),
+              color: Colors.amber,
               blurRadius: 10,
-              offset: const Offset(0, 4))
+              offset: const Offset(0, 4)
             )
           ]
         ),
         child: Row(
           children: [
             Container(
-              width: 40,
-              height: 40,
+              width: 34,
+              height: 12,
               decoration: BoxDecoration(
-                color: Colors.amber.withAlpha(12),
-                borderRadius: BorderRadius.circular(12)
+                color: Colors.blue.withAlpha(12),
+                borderRadius: BorderRadius.circular(23),
               ),
-              child: Icon(Icons.task, color: Colors.blueAccent,),
-            )
+              child: Icon(Icons.task_alt, color: Colors.deepOrange),
+            ),
             Expanded(
               child: Column(
-                crossAxisAlignment: .start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Gea"),
-                  SizedBox(height: 2,),
-                  Text("Reward: 20+ Gold")
+                  Text(quest.title),
+                  SizedBox(height: 3),
+                  Text(quest.reward),
                 ],
               ),
             )

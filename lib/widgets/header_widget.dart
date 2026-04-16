@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HeaderWidget extends StatelessWidget {
   final String name;
   final String role;
-  final int Level;
+  final int level;
+  final String rank;
 
-  const HeaderWidget({super.key, required this.name, required this.role, required this.Level});
+  const HeaderWidget({super.key, required this.name, required this.role, required this.level, required this.rank});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class HeaderWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(999),
                     color: Colors.pink
                   ),
-                  child: Text(" Level $Level",
+                  child: Text(" Level $level",
                   style: TextStyle(
                     color: Colors.blue,
                     fontSize: 10,
@@ -62,6 +64,17 @@ class HeaderWidget extends StatelessWidget {
                 Text("Ball")
               ],
             ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(
+              color: Colors.yellow,
+              borderRadius: BorderRadius.circular(4)
+            ),
+            child: Text(
+              rank,
+              style: GoogleFonts.bubblegumSans(
+                textStyle: TextStyle(fontSize: 64, color: Colors.blueAccent.withAlpha(50)) ) ),
           )
         ],
       ),

@@ -6,7 +6,8 @@ class ChipWidget extends StatelessWidget {
   final String label;
   final IconData icon;
   final int value;
-  const ChipWidget({super.key, required this.label, required this.icon, required this.value});
+  final Color color;
+  const ChipWidget({super.key, required this.label, required this.icon, required this.value, required this.color});
 
   @override
   Widget build(BuildContext context) {
